@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "47924791623",
+    "firebase_url": "https://test-ef51d.firebaseio.com",
+    "project_id": "test-ef51d",
+    "storage_bucket": "test-ef51d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:47924791623:android:20568e798f73fcff",
+        "android_client_info": {
+          "package_name": "com.example.percy.project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "47924791623-plki4t00mp6thcc2phi8kiekjc9a0upr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzSVwqhNFaK-kLquPDSdm-AVhAx6AL-Bw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
