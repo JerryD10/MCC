@@ -135,16 +135,18 @@ public class MainActivity extends Activity  {
         String lastMessage=listItems.get(listItems.size()-1);
         lastMessage.toLowerCase();
         int c=0;
-        String what[][]={{"name","My name is Pebbles"},{"doing","Chatting with you."},{"job","My job is to be an assistant for the visually challenged"},{"you","Im fine. Thank you"}};
-        String why[][]={{"pebbles","They call me Pebbles though I prefer anything else"},{"exist","because I was created"},{"orange","it all depends on what ou want it to be"},{"talk","I am programmed to talk like that"},{""}};
-        String how[][]={{"are you","I'm fine. Thank you. "},{"doing","I dont really like the TV show Friends"},{"is life","Pebbles is an AI.Can not yet answer that question"},{"eating","I cant"}};
+        String what[][]={{"name","My name is Pebbles"},{"you look","i have no form"},{"mile to km","1 mile = 1.60934 Km"},{"time","Im sorry,that functionality has not yet been programmed into me"},{"doing","Chatting with you."},{"job","My job is to be an assistant for the visually challenged"},{"km to mile","1 km = 0.621371 Miles"},{"you","Im fine. Thank you"}};
+        String why[][]={{"pebbles","They call me Pebbles though I prefer anything else"},{},{"exist","because I was created"},{"orange","it all depends on what ou want it to be"},{"talk","I am programmed to talk like that"},{}};
+        String how[][]={{"are you","I'm fine. Thank you. "},{"doing","I dont really like the TV show Friends"},{"you look","i have no form"},{"is life","Pebbles is an AI.Can not yet answer that question"},{"eating","I cant"},{"old","I was born on 10th April"}};
         String who[][]={{"name","My name is Pebbles"},{"doing","Something productive. Unlike you."},{"thinking","Cannot think yet"},{"becoming","AI"}};
+        String where[][]={{"you live","In Android, for now"},{"am i","I'm sorry,that functionality has not yet been programmed into me}};
+        String which[][]={{"languages you","English only"}};
         String greeting[][]={{"hello","Hello. How are you today?"},{"hey","Lovely meeting you today"}};
         String res="";
         boolean replyFound=false;
         if(lastMessage.contains("What") || lastMessage.contains("what"))
         {
-            for(int i=0; i<3; i++)
+            for(int i=0; i<8; i++)
             {
                 if (lastMessage.contains(what[i][0]))
                 {
@@ -156,7 +158,7 @@ public class MainActivity extends Activity  {
         }
         if(c==0 && (lastMessage.contains("Why") || lastMessage.contains("why")))
         {
-            for(int i=0; i<3; i++)
+            for(int i=0; i<6; i++)
             {
                 if (lastMessage.contains(why[i][0]))
                 {
@@ -169,11 +171,37 @@ public class MainActivity extends Activity  {
         }
         if(c==0 && (lastMessage.contains("How") || lastMessage.contains("how")))
         {
-            for(int i=0; i<3; i++)
+            for(int i=0; i<6; i++)
             {
                 if (lastMessage.contains(what[i][0]))
                 {
                     res=how[i][1];
+                    c=1;
+                    break;
+                }
+            }
+
+        }
+        if(c==0 && (lastMessage.contains("Where") || lastMessage.contains("where")))
+        {
+            for(int i=0; i<2; i++)
+            {
+                if (lastMessage.contains(where[i][0]))
+                {
+                    res=where[i][1];
+                    c=1;
+                    break;
+                }
+            }
+
+        }
+        if(c==0 && (lastMessage.contains("Which") || lastMessage.contains("which")))
+        {
+            for(int i=0; i<2; i++)
+            {
+                if (lastMessage.contains(which[i][0]))
+                {
+                    res=which[i][1];
                     c=1;
                     break;
                 }
