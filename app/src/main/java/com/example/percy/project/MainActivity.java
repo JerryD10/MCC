@@ -140,7 +140,7 @@ public class MainActivity extends Activity  {
         String how[][]={{"are you","I'm fine. Thank you. "},{"doing","I dont really like the TV show Friends"},{"you look","i have no form"},{"is life","Pebbles is an AI.Can not yet answer that question"},{"eating","I cant"},{"old","I was born on 10th April"}};
         String who[][]={{"name","My name is Pebbles"},{"doing","Something productive. Unlike you."},{"thinking","Cannot think yet"},{"becoming","AI"}};
         String where[][]={{"you live","In Android, for now"},{"am i","I'm sorry,that functionality has not yet been programmed into me}};
-        String which[][]={{"languages you","English only"}};
+        String which[][]={{"languages you","English only"},{"country","India"};
         String greeting[][]={{"hello","Hello. How are you today?"},{"hey","Lovely meeting you today"}};
         String res="";
         boolean replyFound=false;
