@@ -139,11 +139,66 @@ public class MainActivity extends Activity  {
         String why[][]={{"pebbles","They call me Pebbles though I prefer anything else"},{},{"exist","because I was created"},{"orange","it all depends on what ou want it to be"},{"talk","I am programmed to talk like that"},{}};
         String how[][]={{"are you","I'm fine. Thank you. "},{"doing","I dont really like the TV show Friends"},{"you look","i have no form"},{"is life","Pebbles is an AI.Can not yet answer that question"},{"eating","I cant"},{"old","I was born on 10th April"}};
         String who[][]={{"name","My name is Pebbles"},{"doing","Something productive. Unlike you."},{"thinking","Cannot think yet"},{"becoming","AI"}};
-        String where[][]={{"you live","In Android, for now"},{"am i","I'm sorry,that functionality has not yet been programmed into me}};
-        String which[][]={{"languages you","English only"},{"country","India"};
+        String where[][]={{"you live","In Android, for now"},{"am i","I'm sorry,that functionality has not yet been programmed into me"}};
+        String which[][]={{"languages you","English only"},{"country","India"}};
         String greeting[][]={{"hello","Hello. How are you today?"},{"hey","Lovely meeting you today"}};
         String res="";
         boolean replyFound=false;
+        if(lastMessage.contains("call") || lastMessage.contains("Call")) {
+            res="Enter a number";
+            c=1;
+        }
+
+        if(listItems.get(listItems.size()-3).equals("call") || listItems.get(listItems.size()-3).equals("Call"))
+        {
+            placeCall();
+            c=1;
+        }
+
+        if(lastMessage.contains("message") || lastMessage.contains("message")) {
+            res="Enter a number and message.";
+
+
+
+            c=1;
+        }
+
+        if(listItems.get(listItems.size()-4).equals("message") || listItems.get(listItems.size()-4).equals("message"))
+        {
+            sendSMSMessage();
+            c=1;
+        }
+
+        if(lastMessage.contains("open camera") || lastMessage.contains("Open Camera")) {
+            //res="Opening Camera";
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+                if (getFromPref(this, ALLOW_KEY)) {
+                    showSettingsAlert();
+                } else if (ContextCompat.checkSelfPermission(this,
+                        Manifest.permission.CAMERA)
+
+                        != PackageManager.PERMISSION_GRANTED) {
+
+                    // Should we show an explanation?
+                    if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                            Manifest.permission.CAMERA)) {
+                        showAlert();
+                    } else {
+                        // No explanation needed, we can request the permission.
+                        ActivityCompat.requestPermissions(this,
+                                new String[]{Manifest.permission.CAMERA},
+                                MY_PERMISSIONS_REQUEST_CAMERA);
+                    }
+                }
+                c=1;
+            } else {
+                openCamera();
+            }
+            c=1;
+        }
+
+
+
         if(lastMessage.contains("What") || lastMessage.contains("what"))
         {
             for(int i=0; i<8; i++)
@@ -304,10 +359,10 @@ public class MainActivity extends Activity  {
     }
 
     protected void sendSMSMessage() {
-        //phoneNo = txtphoneNo.getText().toString();
-        //message = txtMessage.getText().toString();
-        phoneNo= "9819369019";
-        text= listItems.get(listItems.size() - 2);
+        phoneNo = listItems.get(listItems.size()-3);
+        text = listItems.get(listItems.size()-2);
+        //phoneNo= "9819369019";
+        //text= listItems.get(listItems.size() - 2);
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.SEND_SMS)
                 != PackageManager.PERMISSION_GRANTED) {
@@ -463,8 +518,9 @@ public class MainActivity extends Activity  {
     }
     public void placeCall()
     {
+
         Intent callIntent = new Intent(Intent.ACTION_CALL);
-        callIntent.setData(Uri.parse("tel:"+listItems.get(listItems.size() - 2)));
+        callIntent.setData(Uri.parse("tel:"+listItems.get(listItems.size() - 1)));
         if (ActivityCompat.checkSelfPermission(MainActivity.this,
                 Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
             return;
